@@ -1,0 +1,11 @@
+port: 3001
+host: http://localhost
+openBrowser: true
+cacheExpiryTime: 72 # 3 days
+mail:
+  host: 127.0.0.1
+  port: 25
+  secure: false
+  auth:
+    user:
+    pass:

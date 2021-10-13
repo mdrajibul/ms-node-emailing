@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+header {
+    border-top: 4px solid #27770f;
+    background-color: #34302d;
+    color: #ffffff;
+    height: 60px;
+    padding: 5px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+main {
+    height: calc(100vh - 98px);
+    overflow: auto;
+    padding: 0 10px;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+footer {
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}

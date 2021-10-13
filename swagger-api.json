@@ -1,0 +1,15 @@
+{
+  "definitions": {},
+  "info": {
+    "title": "@mdrajibul/ms-node-emailing",
+    "version": "1.0.0",
+    "license": {
+      "name": "ISC"
+    },
+    "description": "Specification JSONs: [v2](/api-spec/v2), [v3](/api-spec/v3).\n\nNodeJs microservice for emailing"
+  },
+  "paths": {
+  },
+  "swagger": "2.0",
+  "tags": []
+}
