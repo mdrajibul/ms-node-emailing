@@ -1,5 +1,5 @@
 {
-  "definitions": {},
+  "swagger": "2.0.0",
   "info": {
     "title": "@mdrajibul/ms-node-emailing",
     "version": "1.0.0",
@@ -8,8 +8,72 @@
     },
     "description": "Specification JSONs: [v2](/api-spec/v2), [v3](/api-spec/v3).\n\nNodeJs microservice for emailing"
   },
-  "paths": {
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "type": "apiKey",
+      "name": "authorization",
+      "in": "header"
+    }
   },
-  "swagger": "2.0",
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/api/mail/send": {
+      "post": {
+        "summary": "/api/mail/send",
+        "consumes": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Email sent successfully"
+          },
+          "404": {
+            "description": "Email not sent"
+          },
+          "401": {
+            "description": "Token invalid"
+          }
+        },
+        "parameters": [
+          {
+            "name": "mail",
+            "in": "body",
+            "description": "Mail",
+            "schema": {
+              "type": "object",
+              "required": [
+                "from",
+                "to",
+                "subject"
+              ],
+              "properties": {
+                "from": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                },
+                "subject": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
   "tags": []
 }

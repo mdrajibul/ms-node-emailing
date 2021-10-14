@@ -1,5 +1,6 @@
 import { ProjectConfig } from '@mdrajibul/cloud-config-utils';
 import nodemailer from 'nodemailer';
+import Log from './log';
 
 /**
  * A util function to send email using Nodemailer
@@ -28,6 +29,7 @@ const sendMail = (from: string, to: string, subject: string, text: string): Prom
   return new Promise((resolve, reject) => {
     transporter.verify((error: any, success: any) => {
       if (error) {
+        Log.error(error?.message);
         reject(error);
       } else {
         const mail = {
@@ -40,6 +42,7 @@ const sendMail = (from: string, to: string, subject: string, text: string): Prom
           if (!error) {
             resolve(data);
           } else {
+            Log.error(error?.message);
             reject(error);
           }
         });

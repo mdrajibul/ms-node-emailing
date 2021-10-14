@@ -1,6 +1,7 @@
 import cors from 'cors';
+import bodyParser from 'body-parser';
 import express from 'express';
-import expressOasGenerator from 'express-oas-generator';
+import expressOasGenerator, { SPEC_OUTPUT_FILE_BEHAVIOR } from 'express-oas-generator';
 import swaggerUi from 'swagger-ui-express';
 
 import specs from '../swagger-api.json';
@@ -9,11 +10,13 @@ import Startup from './startup';
 
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 expressOasGenerator.handleResponses(app, {
-  specOutputPath: './swagger-api.json',
-  alwaysServeDocs: true,
-  specOutputFileBehavior: 'RECREATE',
-  swaggerDocumentOptions: null
+  alwaysServeDocs: false,
+  specOutputFileBehavior: SPEC_OUTPUT_FILE_BEHAVIOR.PRESERVE,
+  swaggerDocumentOptions: null,
 });
 
 /** add cors middleware */
