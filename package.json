@@ -6,10 +6,10 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "start:dev": "set NODE_ENV=development && webpack",
-        "start": "set NODE_ENV=development && nodemon build/index.js",
+        "start": "set NODE_ENV=development && nodemon build/index.js --profile=dev",
         "prestart": "npm run build",
         "build": "del-cli dist && webpack",
-        "test": "jest",
+        "test": "jest --collect-coverage --testTimeout=10000 --detectOpenHandles",
         "prettier": "prettier --write src/**/*.{js,jsx,ts,tsx,css}",
         "lint": "tslint --project tsconfig.json",
         "lint:fix": "tslint --project tsconfig.json --fix"

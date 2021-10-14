@@ -20,6 +20,7 @@ const sendMail = (from: string, to: string, subject: string, text: string): Prom
   }
 
   if (ProjectConfig.configs['mail.auth.user']) {
+    transport.auth = {};
     transport.auth.user = ProjectConfig.configs['mail.auth.user'];
     transport.auth.pass = ProjectConfig.configs['mail.auth.pass'];
   }
@@ -29,7 +30,7 @@ const sendMail = (from: string, to: string, subject: string, text: string): Prom
   return new Promise((resolve, reject) => {
     transporter.verify((error: any, success: any) => {
       if (error) {
-        Log.error(error?.message);
+        Log.error(error.message);
         reject(error);
       } else {
         const mail = {
@@ -39,11 +40,11 @@ const sendMail = (from: string, to: string, subject: string, text: string): Prom
           text
         };
         transporter.sendMail(mail, (err: any, data: any) => {
-          if (!error) {
+          if (!err) {
             resolve(data);
           } else {
-            Log.error(error?.message);
-            reject(error);
+            Log.error(err.message);
+            reject(err);
           }
         });
       }

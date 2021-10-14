@@ -3,6 +3,7 @@ import { ProjectConfig } from '@mdrajibul/cloud-config-utils';
 import opn from 'opn';
 
 import BootStrap from './bootstrap';
+import Log from './utils/log';
 
 /**
  * Application Startup class
@@ -20,7 +21,9 @@ export default abstract class Startup {
       if (ProjectConfig.configs.openBrowser) {
         opn(`${host}:${serverPort}`, { wait: true });
       }
-      console.log(`Server running on ${host}:${serverPort}`);
+      if (!ProjectConfig.configs.test) {
+        Log.info(`Server running on ${host}:${serverPort}`);
+      }
     });
   }
 }

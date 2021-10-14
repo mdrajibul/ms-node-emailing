@@ -10,7 +10,7 @@ module.exports = {
   },
   testRegex: '(/tests/.*|(\\.|/)(test|spec))\\.ts?$',
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
-  collectCoverageFrom: ['src/**/*.ts', '!public'],
+  collectCoverageFrom: ['src/**/*.ts', '!public', '!src/index.ts', '!src/utils/log/**/*.ts'],
   coverageReporters: ['html', 'text'],
   coverageThreshold: {
     global: {

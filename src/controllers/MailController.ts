@@ -6,7 +6,7 @@ import sendMail from '../utils/mail';
 import ValidationError from '../utils/validationError';
 import SecureBaseController from './SecureBaseController';
 
-export default class EmailController extends SecureBaseController {
+export default class MailController extends SecureBaseController {
 
   constructor(req: Request, res: Response) {
     super(req, res);
@@ -16,6 +16,7 @@ export default class EmailController extends SecureBaseController {
     const mailObject: IMail = this.req.body;
     const mailDomain = new MailDomain(mailObject);
     const validateResult = mailDomain.validate();
+
     if (validateResult === true) {
       sendMail(mailDomain.from, mailDomain.to, mailDomain.subject, mailDomain.body)
         .then(data => {
