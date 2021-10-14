@@ -3,9 +3,7 @@ import { Request, Response } from 'express';
 import Log from '../utils/log';
 
 export default abstract class SecureBaseController {
-
-  constructor(protected req: Request, protected res: Response) {
-  }
+  constructor(protected req: Request, protected res: Response) {}
 
   authFilter(): boolean {
     if (ProjectConfig.configs.jwtToken !== this.req.headers.authorization) {

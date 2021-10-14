@@ -1,5 +1,5 @@
-import cors from 'cors';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import express from 'express';
 import expressOasGenerator, { SPEC_OUTPUT_FILE_BEHAVIOR } from 'express-oas-generator';
 import swaggerUi from 'swagger-ui-express';
@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 expressOasGenerator.handleResponses(app, {
   alwaysServeDocs: false,
   specOutputFileBehavior: SPEC_OUTPUT_FILE_BEHAVIOR.PRESERVE,
-  swaggerDocumentOptions: null,
+  swaggerDocumentOptions: null
 });
 
 /** add cors middleware */
@@ -34,4 +34,3 @@ app.use('/', swaggerUi.serve, swaggerUi.setup(specs));
 Startup.start(app);
 
 export default app;
-
