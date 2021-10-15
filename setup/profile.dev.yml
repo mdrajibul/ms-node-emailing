@@ -1,6 +1,6 @@
 port: 3001
 host: http://localhost
-openBrowser: false
+openBrowser: true
 jwtToken: 3FF2EC019C627B945225DEBAD71A01B6985FE84C93170B0132882F88C0A5CB55
 log:
   enable: true
