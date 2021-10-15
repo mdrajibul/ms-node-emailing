@@ -1,4 +1,4 @@
-port: 3001
+port: 8001
 host: http://localhost
 openBrowser: false
 jwtToken: 3FF2EC019C627B945225DEBAD71A01B6985FE84C93170B0132882F88C0A5CB55
@@ -9,9 +9,9 @@ log:
     file: true
   filePath: './application.log'
 mail:
-  host: 127.0.0.1
-  port: 25
-  secure: false
+  host: smtp.gmail.com
+  port: 465
+  secure: true
   auth:
-    user:
-    pass:
+    user: #YOUR GMAIL ADDRESS
+    pass: #YOUR GMAIL PASSWORD
